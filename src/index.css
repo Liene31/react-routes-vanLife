@@ -6,15 +6,17 @@
 
 body {
   font-family: "Inter", sans-serif;
+  background-color: #fff7ed;
 }
+
+/* -----HEADER-------- */
 
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100px;
-  padding: 0 1rem;
-  background-color: #fff7ed;
+  padding: 0 1.5rem;
 }
 
 .nav .logo {
@@ -33,4 +35,64 @@ body {
   font-weight: 500;
   text-decoration: none;
   color: #4d4d4d;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* ----ABOUT----- */
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* HERO */
+
+.hero img {
+  width: 100%;
+}
+
+/* INTRO */
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 0 1.5rem;
+}
+
+.intro h2 {
+  font-size: 2rem;
+}
+
+.intro p {
+  font-size: 1rem;
+}
+
+/* CTA */
+
+.cta {
+  background-color: #ffcc8d;
+  padding: 2rem;
+  margin: 2rem 1.5rem;
+  border-radius: 0.3rem;
+}
+
+.cta p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.cta button {
+  background-color: #161616;
+  color: #ffff;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 0.6rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-top: 1.2rem;
 }
