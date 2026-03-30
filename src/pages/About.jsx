@@ -22,7 +22,7 @@ export function About() {
       <section className="cta">
         <p>Your destination is waiting.</p>
         <p>Your van is ready.</p>
-        <button>Explore our vans</button>
+        <button className="btn">Explore our vans</button>
       </section>
     </main>
   );
