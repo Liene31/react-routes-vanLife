@@ -152,6 +152,10 @@ a:hover {
   padding: 0.5rem 1.5rem;
 }
 
+.van-card {
+  width: 230px;
+}
+
 .van-img {
   width: 230px;
   height: 230px;
@@ -160,15 +164,29 @@ a:hover {
 
 .van-info {
   display: flex;
+  justify-content: space-between;
 }
 
-.van-info h2 {
+.van-info .price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.van-info h2,
+.amount {
   font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.van-info .unit {
+  font-size: 0.88rem;
 }
 
 .van-type-btn {
   background-color: #e17654;
   color: #ffead0;
   font-size: 1rem;
+  font-weight: 100;
   padding: 0.5rem 1.5rem;
 }
