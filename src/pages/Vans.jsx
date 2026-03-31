@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export function Vans() {
   const [vans, setVans] = React.useState([]);
@@ -8,6 +9,24 @@ export function Vans() {
       .then((response) => response.json())
       .then((data) => setVans(data.vans));
   }, []);
+
+  const vanElement = vans.map((van) => {
+    return (
+      <div key={van.id} className="van-card">
+        <Link to={`/vans/${van.id}`}>
+          <img src={van.imageUrl} alt={van.name} className="van-img" />
+          <div className="van-info">
+            <h2>{van.name}</h2>
+            <div className="price">
+              <p className="amount">${van.price}</p>
+              <p className="unit">/day</p>
+            </div>
+          </div>
+          <button className={`btn van-type-btn ${van.type}`}>{van.type}</button>
+        </Link>
+      </div>
+    );
+  });
 
   return (
     <main>
@@ -19,25 +38,7 @@ export function Vans() {
           <button className="btn van-search-option">Rugged</button>
         </div>
       </section>
-      <section className="van-cards">
-        {vans.map((van) => {
-          return (
-            <div key={van.id} className="van-card">
-              <img src={van.imageUrl} alt={van.name} className="van-img" />
-              <div className="van-info">
-                <h2>{van.name}</h2>
-                <div className="price">
-                  <p className="amount">${van.price}</p>
-                  <p className="unit">/day</p>
-                </div>
-              </div>
-              <button className={`btn van-type-btn ${van.type}`}>
-                {van.type}
-              </button>
-            </div>
-          );
-        })}
-      </section>
+      <section className="van-cards">{vanElement}</section>
     </main>
   );
 }
