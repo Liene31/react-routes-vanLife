@@ -135,3 +135,40 @@ a:hover {
 .cta button {
   background-color: #161616;
 }
+
+/* ----VANS----- */
+
+/* SEARCH */
+
+.van-search-options {
+  display: flex;
+  gap: 1rem;
+}
+
+.van-search-option {
+  background-color: #ffead0;
+  color: #4d4d4d;
+  font-size: 1rem;
+  padding: 0.5rem 1.5rem;
+}
+
+.van-img {
+  width: 230px;
+  height: 230px;
+  border-radius: 0.3rem;
+}
+
+.van-info {
+  display: flex;
+}
+
+.van-info h2 {
+  font-size: 1.25rem;
+}
+
+.van-type-btn {
+  background-color: #e17654;
+  color: #ffead0;
+  font-size: 1rem;
+  padding: 0.5rem 1.5rem;
+}
