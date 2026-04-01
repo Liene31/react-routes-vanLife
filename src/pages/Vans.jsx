@@ -21,7 +21,7 @@ export function Vans() {
           <div className="van-info">
             <h2>{van.name}</h2>
             <div className="price">
-              <p className="amount">${van.price}</p>
+              <p className="amount">{van.price}</p>
               <p className="unit">/day</p>
             </div>
           </div>
