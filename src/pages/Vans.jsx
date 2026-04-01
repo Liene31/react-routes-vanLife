@@ -13,7 +13,10 @@ export function Vans() {
   const vanElement = vans.map((van) => {
     return (
       <div key={van.id} className="van-card">
-        <Link to={`/vans/${van.id}`}>
+        <Link
+          to={`/vans/${van.id}`}
+          aria-label={`View details for ${van.name},priced at $${van.price} per day`}
+        >
           <img src={van.imageUrl} alt={van.name} className="van-img" />
           <div className="van-info">
             <h2>{van.name}</h2>
@@ -22,7 +25,7 @@ export function Vans() {
               <p className="unit">/day</p>
             </div>
           </div>
-          <button className={`btn van-type-btn ${van.type}`}>{van.type}</button>
+          <i className={`btn van-type-btn ${van.type}`}>{van.type}</i>
         </Link>
       </div>
     );
