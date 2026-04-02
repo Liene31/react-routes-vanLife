@@ -64,9 +64,21 @@ a:hover {
   color: #4d4d4d;
 }
 
+/* -----Footer-------- */
+
+footer {
+  background-color: #252525;
+  color: #aaaaaa;
+  height: 75px;
+  padding: 1.5rem 0;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
 /* ----HOME----- */
 
 .home-container {
+  align-content: center;
   background-image: url(./assets/bg-image.png);
   background-size: cover;
   background-repeat: no-repeat;
@@ -77,9 +89,8 @@ a:hover {
 .home {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
   padding: 0 1.5rem;
-  margin-top: 45px;
   color: #ffffff;
 }
 
@@ -95,6 +106,7 @@ a:hover {
 
 .home a {
   background-color: #ff8c38;
+  margin-top: 3rem;
 }
 
 /* ----ABOUT----- */
