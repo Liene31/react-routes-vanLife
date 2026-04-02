@@ -1,27 +1,30 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home.jsx";
 import { About } from "./pages/About.jsx";
-import { Vans } from "./pages/Vans.jsx";
-import { VanDetail } from "./pages/VanDetail.jsx";
+import { Vans } from "./pages/vans/Vans.jsx";
+import { VanDetail } from "./pages/vans/VanDetail.jsx";
+import { Layout } from "./components/Layout.jsx";
+import { HostLayout } from "./components/HostLayout.jsx";
+import { Dashboard } from "./pages/host/Dashboard.jsx";
+import { Income } from "./pages/host/Income.jsx";
+import { Reviews } from "./pages/host/Reviews.jsx";
 
 function App() {
   return (
     <BrowserRouter>
-      <nav className="nav">
-        <Link className="logo" to="/">
-          #VANLIFE
-        </Link>
-        <div className="nav-links">
-          <Link to="/about">About</Link>
-          <Link to="/vans">Vans</Link>
-        </div>
-      </nav>
-
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/vans" element={<Vans />} />
-        <Route path="/vans/:id" element={<VanDetail />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="vans" element={<Vans />} />
+          <Route path="vans/:id" element={<VanDetail />} />
+
+          <Route path="host" element={<HostLayout />}>
+            <Route index element={<Dashboard />} />
+            <Route path="income" element={<Income />} />
+            <Route path="reviews" element={<Reviews />} />
+          </Route>
+        </Route>
       </Routes>
     </BrowserRouter>
   );
