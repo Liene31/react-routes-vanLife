@@ -1,12 +1,15 @@
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Link, Outlet } from "react-router-dom";
 
 export function HostLayout() {
   return (
     <>
       <nav className="nav-links">
-        <Link to="/host">Dashboard</Link>
-        <Link to="/host/income">Income</Link>
-        <Link to="/host/reviews">Reviews</Link>
+        <NavLink to="/host" end>
+          Dashboard
+        </NavLink>
+        <NavLink to="/host/income">Income</NavLink>
+        <NavLink to="/host/vans">Vans</NavLink>
+        <NavLink to="/host/reviews">Reviews</NavLink>
       </nav>
       <Outlet />
     </>

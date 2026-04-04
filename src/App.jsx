@@ -8,6 +8,8 @@ import { HostLayout } from "./components/HostLayout.jsx";
 import { Dashboard } from "./pages/host/Dashboard.jsx";
 import { Income } from "./pages/host/Income.jsx";
 import { Reviews } from "./pages/host/Reviews.jsx";
+import { HostVans } from "./pages/host/HostVans.jsx";
+import { HostVansDetails } from "./pages/host/HostVansDetails.jsx";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           <Route path="host" element={<HostLayout />}>
             <Route index element={<Dashboard />} />
             <Route path="income" element={<Income />} />
+            <Route path="vans" element={<HostVans />} />
+            <Route path="vans/:id" element={<HostVansDetails />} />
             <Route path="reviews" element={<Reviews />} />
           </Route>
         </Route>
