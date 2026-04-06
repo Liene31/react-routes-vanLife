@@ -9,11 +9,10 @@ import { Dashboard } from "./pages/host/Dashboard.jsx";
 import { Income } from "./pages/host/Income.jsx";
 import { Reviews } from "./pages/host/Reviews.jsx";
 import { HostVans } from "./pages/host/HostVans.jsx";
-import { HostVansDetails } from "./pages/host/HostVansDetails.jsx";
-import { HostVanDetailLayout } from "./components/HostVanDetailLayout.jsx";
-import { Details } from "./pages/host/vans-details/Details.jsx";
-import { Pricing } from "./pages/host/vans-details/Pricing.jsx";
-import { Photos } from "./pages/host/vans-details/Photos.jsx";
+import { HostVansDetails } from "./pages/host/HostVanDetails.jsx";
+import { HostVanInfo } from "./pages/host/HostVanInfo.jsx";
+import { HostVanPricing } from "./pages/host/HostVanPricing.jsx";
+import { HostVanPhotos } from "./pages/host/HostVanPhotos.jsx";
 
 function App() {
   return (
@@ -29,13 +28,11 @@ function App() {
             <Route index element={<Dashboard />} />
             <Route path="income" element={<Income />} />
             <Route path="vans" element={<HostVans />} />
-            <Route path="vans/:id" element={<HostVansDetails />} />
             <Route path="reviews" element={<Reviews />} />
-
-            <Route path="host/vans/:id" element={<HostVanDetailLayout />}>
-              <Route index element={<Details />} />
-              <Route path="pricing" element={<Pricing />} />
-              <Route path="photos" element={<Photos />} />
+            <Route path="vans/:id" element={<HostVansDetails />}>
+              <Route index element={<HostVanInfo />} />
+              <Route path="pricing" element={<HostVanPricing />} />
+              <Route path="photos" element={<HostVanPhotos />} />
             </Route>
           </Route>
         </Route>
