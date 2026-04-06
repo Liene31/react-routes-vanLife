@@ -41,7 +41,7 @@ export function HostVansDetails() {
           <NavLink to="pricing">Pricing</NavLink>
           <NavLink to="photos">Photos</NavLink>
         </nav>
-        <Outlet />
+        <Outlet context={{ currentVan }} />
       </>
     </>
   );
