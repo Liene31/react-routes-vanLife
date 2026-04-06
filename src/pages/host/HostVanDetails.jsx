@@ -1,6 +1,17 @@
-import { NavLink, Link, Outlet } from "react-router-dom";
+import { NavLink, Link, Outlet, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export function HostVansDetails() {
+  const [currentVan, setCurrentVan] = useState(null);
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    fetch(`/api/host/vans/${id}`)
+      .then((res) => res.json())
+      .then((data) => setCurrentVan(data.vans[0]));
+  }, []);
+
   return (
     <>
       {/* Relative path indicates to go path back not to go back to parent */}
@@ -9,24 +20,26 @@ export function HostVansDetails() {
         &larr; <span>Back to all vans</span>
       </Link>
 
-      <div className="host-van-card">
-        <img
-          src="https://img.freepik.com/vecteurs-premium/vehicule-transport-dessin-anime-isole-fourgon-retro-mouvement_1263357-22873.jpg?semt=ais_hybrid&w=740&q=80"
-          alt=""
-        />
-        <div className="">
-          <i className="btn van-type-btn simple">simple</i>
-          <h2>Modest Explorer</h2>
-          <p>$60/day</p>
+      {currentVan ? (
+        <div className="host-van-card">
+          <img src={currentVan.imageUrl} alt={`Image of ${currentVan.name}`} />
+          <div className="">
+            <i className="btn van-type-btn simple">simple</i>
+            <h2>{currentVan.name}</h2>
+            <p>{`$ ${currentVan.price}/day`}</p>
+          </div>
         </div>
-      </div>
+      ) : (
+        <h2>Loading</h2>
+      )}
+
       <>
         <nav className="nav-links">
-          <NavLink to="/host/vans/:id" end>
+          <NavLink to="." end>
             Details
           </NavLink>
-          <NavLink to="/host/vans/:id/pricing">Pricing</NavLink>
-          <NavLink to="/host/vans/:id/photos">Photos</NavLink>
+          <NavLink to="pricing">Pricing</NavLink>
+          <NavLink to="photos">Photos</NavLink>
         </nav>
         <Outlet />
       </>

@@ -289,7 +289,7 @@ footer {
   gap: 0.5rem;
   background-color: #ffffff;
   padding: 1rem;
-  margin-bottom: 1rem;
+  margin: 1rem;
   border-radius: 0.3rem;
 }
 
@@ -298,7 +298,7 @@ footer {
 }
 
 .host-van-card img {
-  width: 65px;
+  width: 105px;
   border-radius: 0.3rem;
 }
 

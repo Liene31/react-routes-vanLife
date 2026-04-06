@@ -10,8 +10,6 @@ export function HostVans() {
       .then((data) => setVans(data.vans));
   }, []);
 
-  console.log(vans);
-
   const vanListElements = vans.map((van) => (
     <Link key={van.id} className="host-van-card" to={`/host/vans/${van.id}`}>
       <img src={van.imageUrl} alt={`${van.name} image`} />
