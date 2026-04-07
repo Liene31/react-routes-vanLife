@@ -15,6 +15,19 @@ import { HostVanPricing } from "./pages/host/HostVanPricing.jsx";
 import { HostVanPhotos } from "./pages/host/HostVanPhotos.jsx";
 import { NotFound } from "./pages/NotFound.jsx";
 
+export const routes = [
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "about", element: <About /> },
+      { path: "vans", element: <Vans /> },
+      { path: "vans/:id", element: <VanDetail /> },
+    ],
+  },
+];
+
 function App() {
   return (
     <BrowserRouter>
