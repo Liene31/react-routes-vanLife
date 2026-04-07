@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Home } from "./pages/Home.jsx";
 import { About } from "./pages/About.jsx";
 import { Vans } from "./pages/vans/Vans.jsx";
@@ -15,7 +15,7 @@ import { HostVanPricing } from "./pages/host/HostVanPricing.jsx";
 import { HostVanPhotos } from "./pages/host/HostVanPhotos.jsx";
 import { NotFound } from "./pages/NotFound.jsx";
 
-export const routes = [
+const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
@@ -24,36 +24,32 @@ export const routes = [
       { path: "about", element: <About /> },
       { path: "vans", element: <Vans /> },
       { path: "vans/:id", element: <VanDetail /> },
+      {
+        path: "host",
+        element: <HostLayout />,
+        children: [
+          { index: true, element: <Dashboard /> },
+          { path: "income", element: <Income /> },
+          { path: "vans", element: <HostVans /> },
+          { path: "reviews", element: <Reviews /> },
+          {
+            path: "vans/:id",
+            element: <HostVansDetails />,
+            children: [
+              { index: true, element: <HostVanInfo /> },
+              { path: "pricing", element: <HostVanPricing /> },
+              { path: "photos", element: <HostVanPhotos /> },
+            ],
+          },
+        ],
+      },
+      { path: "*", element: <NotFound /> },
     ],
   },
-];
+]);
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="vans" element={<Vans />} />
-          <Route path="vans/:id" element={<VanDetail />} />
-
-          <Route path="host" element={<HostLayout />}>
-            <Route index element={<Dashboard />} />
-            <Route path="income" element={<Income />} />
-            <Route path="vans" element={<HostVans />} />
-            <Route path="reviews" element={<Reviews />} />
-            <Route path="vans/:id" element={<HostVansDetails />}>
-              <Route index element={<HostVanInfo />} />
-              <Route path="pricing" element={<HostVanPricing />} />
-              <Route path="photos" element={<HostVanPhotos />} />
-            </Route>
-          </Route>
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
