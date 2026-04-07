@@ -14,13 +14,13 @@ export function VanDetail() {
 
   const search = location.state?.search || "";
 
-  console.log(search);
+  const type = location.state?.type || "all";
 
   return (
     <main>
       <section className="van-details-container">
         <Link to={`..${search}`} relative="path" className="back-button">
-          &larr; <span>Back to all vans</span>
+          &larr; <span>Back to {type} vans</span>
         </Link>
         {van ? (
           <div className="van-details">
