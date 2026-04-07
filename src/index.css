@@ -270,10 +270,6 @@ footer {
 
 /* ----VANS DETAILS----- */
 
-.van-details-container a {
-  background-color: #ff8c38;
-}
-
 .van-details {
   display: flex;
   flex-direction: column;

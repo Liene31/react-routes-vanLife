@@ -21,7 +21,8 @@ export function Vans() {
     return (
       <div key={van.id} className="van-card">
         <Link
-          to={`/vans/${van.id}`}
+          to={`${van.id}`}
+          state={{ search: `?${searchParams.toString()}` }}
           aria-label={`View details for ${van.name},priced at $${van.price} per day`}
         >
           <img src={van.imageUrl} alt={van.name} className="van-img" />
